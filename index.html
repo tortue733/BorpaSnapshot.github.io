@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Borpa Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Blockchain Borpa Checker</h1>
+    <div>
+        <label for="blockchain">Choose a blockchain:</label>
+        <select id="blockchain">
+            <option value="solana">Solana</option>
+            <option value="arbitrum">Arbitrum</option>
+            <option value="bsc">BSC</option>
+            <option value="base">Base</option>
+        </select>
+    </div>
+    <div>
+        <label for="address">Enter Address:</label>
+        <input type="text" id="address" placeholder="0x...">
+    </div>
+    <button onclick="checkBorpa()">Check Borpa</button>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>
