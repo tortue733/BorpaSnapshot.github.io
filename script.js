@@ -1,6 +1,6 @@
 function checkBorpa() {
     const blockchain = document.getElementById('blockchain').value;
-    const address = document.getElementById('address').value.trim();
+    const address = document.getElementById('address').value.trim().toLowerCase(); // Convert address to lowercase
     let csvFile = '';
 
     switch (blockchain) {
@@ -39,7 +39,7 @@ function checkBorpa() {
                 const lines = data.split('\n');
                 for (let i = 1; i < lines.length; i++) {
                     const [wallet, , amount] = lines[i].split(';');
-                    if (wallet === address) {
+                    if (wallet.toLowerCase() === address) { // Convert wallet to lowercase
                         found = true;
                         const borpaAmount = parseFloat(amount) / 10**6; // Adjust for Solana
                         resultDiv.innerHTML = `Address: ${address} holds ${borpaAmount.toFixed(6)} Borpa.`;
@@ -55,7 +55,7 @@ function checkBorpa() {
                 
                 for (let i = 1; i < lines.length; i++) {
                     const columns = lines[i].split(',');
-                    if (columns[addressIndex] === address) {
+                    if (columns[addressIndex].toLowerCase() === address) { // Convert address to lowercase
                         found = true;
                         const borpaAmount = parseFloat(columns[balanceIndex]) / (10 ** 18); // Adjust for other blockchains
                         resultDiv.innerHTML = `Address: ${address} holds ${borpaAmount.toFixed(2)} Borpa.`;
