@@ -18,8 +18,15 @@ function checkBorpa() {
             break;
     }
 
+    console.log(`Fetching CSV file: ${csvFile}`);
+    
     fetch(csvFile)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
         .then(data => {
             const resultDiv = document.getElementById('result');
             let found = false;
@@ -31,7 +38,8 @@ function checkBorpa() {
                     const [wallet, , amount] = lines[i].split(';');
                     if (wallet === address) {
                         found = true;
-                        resultDiv.innerHTML = `Address: ${address} holds ${parseFloat(amount).toFixed(2)} Borpa.`;
+                        const borpaAmount = parseFloat(amount) / (10 ** 6); // Adjust for Solana
+                        resultDiv.innerHTML = `Address: ${address} holds ${borpaAmount.toFixed(6)} Borpa.`;
                         break;
                     }
                 }
@@ -46,7 +54,8 @@ function checkBorpa() {
                     const columns = lines[i].split(',');
                     if (columns[addressIndex] === address) {
                         found = true;
-                        resultDiv.innerHTML = `Address: ${address} holds ${(parseFloat(columns[balanceIndex]) / (10 ** 18)).toFixed(2)} Borpa.`;
+                        const borpaAmount = parseFloat(columns[balanceIndex]) / (10 ** 18); // Adjust for other blockchains
+                        resultDiv.innerHTML = `Address: ${address} holds ${borpaAmount.toFixed(2)} Borpa.`;
                         break;
                     }
                 }
