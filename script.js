@@ -16,6 +16,9 @@ function checkBorpa() {
         case 'base':
             csvFile = 'data/base_holders_2024-07-03_01-45-18.csv';
             break;
+        case 'ethereum':
+            csvFile = 'data/eth_holders_2024-07-03_01-45-18.csv';
+            break;
     }
 
     console.log(`Fetching CSV file: ${csvFile}`);
