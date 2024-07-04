@@ -5,43 +5,50 @@ function checkBorpa() {
 
     switch (blockchain) {
         case 'solana':
-            csvFile = 'snapshot_solana.csv';
+            csvFile = 'data/snapshot_solana.csv';
             break;
         case 'arbitrum':
-            csvFile = 'arb_holders_2024-07-03_01-45-18.csv';
+            csvFile = 'data/arb_holders_2024-07-03_01-45-18.csv';
             break;
         case 'bsc':
-            csvFile = 'bsc_holders_2024-07-03_01-45-18.csv';
+            csvFile = 'data/bsc_holders_2024-07-03_01-45-18.csv';
             break;
         case 'base':
-            csvFile = 'base_holders_2024-07-03_01-45-18.csv';
+            csvFile = 'data/base_holders_2024-07-03_01-45-18.csv';
             break;
     }
 
     fetch(csvFile)
         .then(response => response.text())
         .then(data => {
-            const lines = data.split('\n');
-            const header = lines[0].split(',');
-
-            let addressIndex = header.indexOf('address');
-            let borpaIndex = header.indexOf('borpa');
-            
-            if (blockchain === 'solana') {
-                addressIndex = 0; // Assuming address is in the first column for Solana CSV
-                borpaIndex = 1; // Assuming borpa is in the second column for Solana CSV
-            }
-
             const resultDiv = document.getElementById('result');
             let found = false;
 
-            for (let i = 1; i < lines.length; i++) {
-                const columns = lines[i].split(',');
-
-                if (columns[addressIndex] === address) {
-                    found = true;
-                    resultDiv.innerHTML = `Address: ${address} holds ${parseFloat(columns[borpaIndex]).toFixed(2)} Borpa.`;
-                    break;
+            if (blockchain === 'solana') {
+                // Handle Solana CSV
+                const lines = data.split('\n');
+                for (let i = 1; i < lines.length; i++) {
+                    const [wallet, , amount] = lines[i].split(';');
+                    if (wallet === address) {
+                        found = true;
+                        resultDiv.innerHTML = `Address: ${address} holds ${parseFloat(amount).toFixed(2)} Borpa.`;
+                        break;
+                    }
+                }
+            } else {
+                // Handle other CSVs
+                const lines = data.split('\n');
+                const header = lines[0].split(',');
+                const addressIndex = header.indexOf('address');
+                const balanceIndex = header.indexOf('balance');
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const columns = lines[i].split(',');
+                    if (columns[addressIndex] === address) {
+                        found = true;
+                        resultDiv.innerHTML = `Address: ${address} holds ${(parseFloat(columns[balanceIndex]) / (10 ** 18)).toFixed(2)} Borpa.`;
+                        break;
+                    }
                 }
             }
 
