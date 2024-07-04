@@ -38,7 +38,7 @@ function checkBorpa() {
                     const [wallet, , amount] = lines[i].split(';');
                     if (wallet === address) {
                         found = true;
-                        const borpaAmount = parseFloat(amount);
+                        const borpaAmount = parseFloat(amount) / 10**6; // Adjust for Solana
                         resultDiv.innerHTML = `Address: ${address} holds ${borpaAmount.toFixed(6)} Borpa.`;
                         break;
                     }
