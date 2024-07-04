@@ -3,6 +3,18 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
+    text-align: center;
+}
+
+header .banner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.logo {
+    width: 100px;
+    margin: 20px auto;
 }
 
 h1 {
@@ -22,6 +34,9 @@ input, select {
     padding: 8px;
     width: 100%;
     box-sizing: border-box;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
 }
 
 button {
@@ -39,4 +54,10 @@ button:hover {
 #result {
     margin-top: 20px;
     font-weight: bold;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
 }
