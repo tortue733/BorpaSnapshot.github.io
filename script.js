@@ -74,7 +74,6 @@ function checkBorpa() {
         })
         .catch(error => {
             console.error('Error fetching the CSV file:', error);
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = 'An error occurred while checking the address.';
+            document.getElementById('result').innerHTML = 'An error occurred while fetching the data.';
         });
 }
