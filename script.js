@@ -53,6 +53,10 @@ function checkBorpa() {
                 const addressIndex = header.indexOf('address');
                 const balanceIndex = header.indexOf('balance');
                 
+                if (addressIndex === -1 || balanceIndex === -1) {
+                    throw new Error('Invalid CSV format');
+                }
+                
                 for (let i = 1; i < lines.length; i++) {
                     const columns = lines[i].split(',');
                     if (columns[addressIndex].toLowerCase() === address) { // Convert address to lowercase
@@ -70,6 +74,7 @@ function checkBorpa() {
         })
         .catch(error => {
             console.error('Error fetching the CSV file:', error);
-            document.getElementById('result').innerHTML = 'An error occurred while checking the address.';
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'An error occurred while checking the address.';
         });
 }
