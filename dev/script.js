@@ -5,19 +5,19 @@ function checkBorpa() {
 
     switch (blockchain) {
         case 'solana':
-            csvFile = '/data/snapshot_solana.csv';
+            csvFile = '../data/snapshot_solana.csv';
             break;
         case 'arbitrum':
-            csvFile = '/data/arb_holders_2024-07-03_01-45-18.csv';
+            csvFile = '../data/arb_holders_2024-07-03_01-45-18.csv';
             break;
         case 'bsc':
-            csvFile = '/data/bsc_holders_2024-07-03_01-45-18.csv';
+            csvFile = '../data/bsc_holders_2024-07-03_01-45-18.csv';
             break;
         case 'base':
-            csvFile = '/data/base_holders_2024-07-03_01-45-18.csv';
+            csvFile = '../data/base_holders_2024-07-03_01-45-18.csv';
             break;
         case 'ethereum':
-            csvFile = '/data/eth_holders_2024-07-03_01-45-18.csv';
+            csvFile = '../data/eth_holders_2024-07-03_01-45-18.csv';
             break;
     }
 
