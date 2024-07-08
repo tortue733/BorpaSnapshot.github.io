@@ -62,7 +62,7 @@ function checkBorpa() {
                     if (columns[addressIndex] && columns[addressIndex].toLowerCase() === address) { // Convert address to lowercase
                         found = true;
                         const borpaAmount = parseFloat(columns[balanceIndex]) / (10 ** 18); // Adjust for other blockchains
-                        resultDiv.innerHTML = `Address: ${address} holds ${borpaAmount.toFixed(2)} Borpa.`;
+                        resultDiv.innerHTML = `Address: ${address} \nholds:\n ${borpaAmount.toFixed(2)} Borpa`;
                         break;
                     }
                 }
