@@ -80,7 +80,7 @@ function checkBorpa() {
 const tweets = [
     {
         text: "🎤📢 BORPA FOR THE FUTURE! 📢🎤<br>$BORPA is rallying the community for a brighter crypto future! With visionary leadership and unstoppable energy, we're ready to revolutionize the world of memecoins. Join us and be part of the change! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet1.jpg"
+        image: "images/tweet1.png"
     },
     {
         text: "🌴🏖️ BORPA BEACH VIBES! 🏖️🌴<br>$BORPA is soaking up the sun and catching waves! Embrace the relaxed and adventurous spirit of our community. Crypto never looked this fun! 🌊🐸 #JustBorpa #BullishForBorpa $Borpa",
