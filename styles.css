@@ -117,3 +117,14 @@ h1 {
     font-size: 1em;
     color: #333;
 }
+
+footer.tweet-footer {
+    background-color: #fff;
+    color: #555;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
