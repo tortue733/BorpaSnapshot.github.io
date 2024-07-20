@@ -62,3 +62,17 @@ footer {
     color: #555;
     text-align: center;
 }
+.tweet-button, .copy-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.tweet-button:hover, .copy-button:hover {
+    background-color: #0d8bf2;
+}

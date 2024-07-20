@@ -108,6 +108,7 @@ const tweets = [
 ];
 
 
+
 function generateTwitterUrl(text) {
     const plainText = text.replace(/<br>/g, '\n'); // Remplace les balises <br> par des nouvelles lignes
     const baseUrl = "https://twitter.com/intent/tweet";
@@ -115,6 +116,19 @@ function generateTwitterUrl(text) {
         text: plainText
     });
     return `${baseUrl}?${params.toString()}`;
+}
+
+async function copyImageToClipboard(imageUrl) {
+    try {
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const item = new ClipboardItem({ "image/png": blob });
+        await navigator.clipboard.write([item]);
+        alert('Image copied to clipboard!');
+    } catch (err) {
+        console.error('Failed to copy image: ', err);
+        alert('Failed to copy image.');
+    }
 }
 
 function loadTweets() {
@@ -125,7 +139,10 @@ function loadTweets() {
         tweetElement.innerHTML = `
             <p>${tweet.text}</p>
             <img src="${tweet.image}" alt="Borpa Image">
-            <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
+            <div class="button-container">
+                <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
+                <button class="copy-button" onclick="copyImageToClipboard('${tweet.image}')">Copy Image</button>
+            </div>
         `;
         container.appendChild(tweetElement);
     });
