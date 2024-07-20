@@ -77,3 +77,27 @@ function checkBorpa() {
             document.getElementById('result').innerHTML = 'An error occurred while fetching the data.';
         });
 }
+const tweets = [
+    {
+        text: "🌟 Hey BORPA Community! 🌟 Our beloved $BORPA is ready to conquer the crypto universe! 🚀 With the spirit of adventure and innovation, we are unstoppable. Join the revolution and let's make history together! 🌕🐸 #JustBorpa #BullishForBorpa $Borpa",
+        image: "borpa1.jpg"
+    },
+    {
+        text: "Ready for the next meme generation? Join $BORPA now! 🐸💰 #JustBorpa #MemeCoin #Crypto",
+        image: "borpa2.jpg"
+    }
+    // Ajoutez de nouveaux tweets ici
+];
+
+function loadTweets() {
+    const container = document.getElementById('tweets-container');
+    tweets.forEach(tweet => {
+        const tweetElement = document.createElement('div');
+        tweetElement.className = 'tweet';
+        tweetElement.innerHTML = `
+            <p>${tweet.text}</p>
+            <img src="${tweet.image}" alt="Borpa Image">
+        `;
+        container.appendChild(tweetElement);
+    });
+}
