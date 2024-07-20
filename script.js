@@ -79,7 +79,7 @@ function checkBorpa() {
 }
 const tweets = [
     {
-        text: "🎤🔥 BORPA COMMANDS: BURN IT! 🔥🎤<br>At the heart of the $BORPA rally, our leader calls for decisive action! 'Burn it!' he says, pointing to the unclaimed supply. Together, we're strengthening our community and forging a powerful future. Don't forget, the vote ends in less than 24 hours! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
+        text: "🎤🔥 BORPA COMMANDS: BURN IT! 🔥🎤<br>At the heart of the $BORPA rally, our leader calls for decisive action! 'Burn it!' he says, pointing to the unclaimed supply. Together, we're strengthening our community. Don't forget, the vote ends in less than 24 hours! 🐸✨ #JustBorpa $Borpa",
         image: "images/tweet6.png"
     },
     {
