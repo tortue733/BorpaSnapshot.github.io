@@ -84,7 +84,7 @@ const tweets = [
     },
     {
         text: "Ready for the next meme generation? Join $BORPA now! 🐸💰 #JustBorpa #MemeCoin #Crypto",
-        image: "borpa2.jpg"
+        image: "/images/borpa2.jpg"
     }
     // Ajoutez de nouveaux tweets ici
 ];
