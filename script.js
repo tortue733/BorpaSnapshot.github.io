@@ -77,40 +77,9 @@ function checkBorpa() {
             document.getElementById('result').innerHTML = 'An error occurred while fetching the data.';
         });
 }
-const tweets = [
-    {
-        text: "🏴‍☠️ Ahoy, BORPA Crew! 🏴‍☠️<br>Our fearless leader Borpa Sparrow is on the run with the treasure of $BORPA! Join the adventure and let's sail the seas of crypto together. Keep an eye out for the unclaimed bounty! 🌊💰 #JustBorpa #BullishForBorpa $Borpa<br><br>Borpa Sparrow",
-        image: "images/tweet7.png"
-    },
-    {
-        text: "🎤🔥 BORPA COMMANDS: BURN IT! 🔥🎤<br>At the heart of the $BORPA rally, our leader calls for decisive action! 'Burn it!' he says, pointing to the unclaimed supply. Together, we're strengthening our community. Don't forget, the vote ends in less than 24 hours! 🐸✨ #JustBorpa $Borpa",
-        image: "images/tweet6.png"
-    },
-    {
-        text: "🚀 HEAR YE, HEAR YE! 🚀<br>The valiant $BORPA knights are ready to conquer the crypto kingdom! With strength, bravery, and the spirit of adventure, we shall rise! 🌟 Join the quest and be part of the legend! 🐸🛡️⚔️ #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet4.png"
-    },
-    {
-        text: "🚀🌕 HEY BORPA EXPLORERS! 🌕🚀<br>$BORPA has landed on the moon! With the spirit of exploration and limitless potential, we are pioneering the crypto universe. Join the adventure and let's make history together! 🐸🌌 #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet5.png"
-    },
-    {
-        text: "🎤📢 BORPA FOR THE FUTURE! 📢🎤<br>$BORPA is rallying the community for a brighter crypto future! With visionary leadership and unstoppable energy, we're ready to revolutionize the world of memecoins. Join us and be part of the change! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet1.png"
-    },
-    {
-        text: "🌴🏖️ BORPA BEACH VIBES! 🏖️🌴<br>$BORPA is soaking up the sun and catching waves! Embrace the relaxed and adventurous spirit of our community. Crypto never looked this fun! 🌊🐸 #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet2.png"
-    },
-    {
-        text: "🚕💼 ON THE MOVE WITH BORPA! 💼🚕<br>$BORPA is heading to shake up the memecoin world! With business savvy and unstoppable drive, we're set to transform the crypto landscape. Join the ride and let's make waves together! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet3.png"
-    }
-    
-    
-    // Ajoutez de nouveaux tweets ici
-];
-
+let tweets = [];
+let tweetIndex = 0;
+const tweetsPerLoad = 3;
 
 function generateTwitterUrl(text) {
     const plainText = text.replace(/<br>/g, '\n'); // Remplace les balises <br> par des nouvelles lignes
@@ -121,18 +90,61 @@ function generateTwitterUrl(text) {
     return `${baseUrl}?${params.toString()}`;
 }
 
-function loadTweets() {
+function loadMoreTweets() {
     const container = document.getElementById('tweets-container');
-    tweets.forEach(tweet => {
+    const fragment = document.createDocumentFragment();
+
+    for (let i = tweetIndex; i < tweetIndex + tweetsPerLoad && i < tweets.length; i++) {
+        const tweet = tweets[i];
         const tweetElement = document.createElement('div');
         tweetElement.className = 'tweet';
         tweetElement.innerHTML = `
             <p>${tweet.text}</p>
             <img src="${tweet.image}" alt="Borpa Image">
-            <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
+            <div class="button-container">
+                <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
+                <button class="copy-button" onclick="copyImageToClipboard('${tweet.image}')">Copy Image</button>
+            </div>
         `;
-        container.appendChild(tweetElement);
-    });
+        fragment.appendChild(tweetElement);
+    }
+
+    container.appendChild(fragment);
+    tweetIndex += tweetsPerLoad;
 }
 
-document.addEventListener('DOMContentLoaded', loadTweets);
+async function copyImageToClipboard(imageUrl) {
+    try {
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const item = new ClipboardItem({ "image/png": blob });
+        await navigator.clipboard.write([item]);
+        alert('Image copied to clipboard!');
+    } catch (err) {
+        console.error('Failed to copy image: ', err);
+        alert('Failed to copy image.');
+    }
+}
+
+async function fetchTweets() {
+    try {
+        const response = await fetch('tweets.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        tweets = await response.json();
+        loadMoreTweets();
+    } catch (error) {
+        console.error('Error fetching the tweets:', error);
+        document.getElementById('result').innerHTML = 'An error occurred while fetching the tweets.';
+    }
+}
+
+function handleScroll() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500 && tweetIndex < tweets.length) {
+        loadMoreTweets();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchTweets);
+window.addEventListener('scroll', handleScroll);
