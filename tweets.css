@@ -1,17 +1,15 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    text-align: center;
 }
 
-header {
-    text-align: center;
-    padding: 20px;
-    position: relative;
+header .banner {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
 }
 
 .logo {
@@ -28,8 +26,8 @@ header {
 }
 
 .social-links a img {
-    width: 24px; /* Fixe la largeur à 24px */
-    height: 24px; /* Fixe la hauteur à 24px */
+    width: 24px;
+    height: 24px;
 }
 
 h1 {
@@ -60,6 +58,7 @@ main {
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    text-align: center; /* Centrer le texte dans le tweet */
 }
 
 .tweet img {
@@ -71,9 +70,10 @@ main {
     margin: 10px 0;
     font-size: 1em;
     color: #333;
+    text-align: center; /* Centrer le texte dans le paragraphe */
 }
 
-footer.tweet-footer {
+footer {
     background-color: #fff;
     color: #555;
     text-align: center;
