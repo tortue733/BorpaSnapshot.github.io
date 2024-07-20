@@ -79,12 +79,12 @@ function checkBorpa() {
 }
 const tweets = [
     {
-        text: "🌟 Hey BORPA Community! 🌟 Our beloved $BORPA is ready to conquer the crypto universe! 🚀 With the spirit of adventure and innovation, we are unstoppable. Join the revolution and let's make history together! 🌕🐸 #JustBorpa #BullishForBorpa $Borpa",
-        image: "borpa1.jpg"
+        text: "🎤📢 BORPA FOR THE FUTURE! 📢🎤$BORPA is rallying the community for a brighter crypto future! With visionary leadership and unstoppable energy, we're ready to revolutionize the world of memecoins. Join us and be part of the change! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet1.jpg"
     },
     {
-        text: "Ready for the next meme generation? Join $BORPA now! 🐸💰 #JustBorpa #MemeCoin #Crypto",
-        image: "/images/borpa2.jpg"
+        text: "🌴🏖️ BORPA BEACH VIBES! 🏖️🌴$BORPA is soaking up the sun and catching waves! Embrace the relaxed and adventurous spirit of our community. Crypto never looked this fun! 🌊🐸 #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet2.png"
     }
     // Ajoutez de nouveaux tweets ici
 ];
