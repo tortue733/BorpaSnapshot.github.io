@@ -109,9 +109,10 @@ const tweets = [
 
 
 function generateTwitterUrl(text, image) {
+    const plainText = text.replace(/<br>/g, '\n'); // Remplace les balises <br> par des nouvelles lignes
     const baseUrl = "https://twitter.com/intent/tweet";
     const params = new URLSearchParams({
-        text: `${text}\n\n(Please add the image manually: ${image})`
+        text: `${plainText}\n\n(Please add the image manually: ${image})`
     });
     return `${baseUrl}?${params.toString()}`;
 }
