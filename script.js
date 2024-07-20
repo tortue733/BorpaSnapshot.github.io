@@ -108,11 +108,11 @@ const tweets = [
 ];
 
 
-function generateTwitterUrl(text, image) {
+function generateTwitterUrl(text) {
     const plainText = text.replace(/<br>/g, '\n'); // Remplace les balises <br> par des nouvelles lignes
     const baseUrl = "https://twitter.com/intent/tweet";
     const params = new URLSearchParams({
-        text: `${plainText}\n\n(Please add the image manually: ${image})`
+        text: plainText
     });
     return `${baseUrl}?${params.toString()}`;
 }
@@ -125,7 +125,7 @@ function loadTweets() {
         tweetElement.innerHTML = `
             <p>${tweet.text}</p>
             <img src="${tweet.image}" alt="Borpa Image">
-            <a href="${generateTwitterUrl(tweet.text, tweet.image)}" target="_blank" class="tweet-button">Post on Twitter</a>
+            <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
         `;
         container.appendChild(tweetElement);
     });
