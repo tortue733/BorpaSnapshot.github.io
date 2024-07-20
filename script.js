@@ -107,6 +107,15 @@ const tweets = [
     // Ajoutez de nouveaux tweets ici
 ];
 
+
+function generateTwitterUrl(text) {
+    const baseUrl = "https://twitter.com/intent/tweet";
+    const params = new URLSearchParams({
+        text: text
+    });
+    return `${baseUrl}?${params.toString()}`;
+}
+
 function loadTweets() {
     const container = document.getElementById('tweets-container');
     tweets.forEach(tweet => {
@@ -115,7 +124,10 @@ function loadTweets() {
         tweetElement.innerHTML = `
             <p>${tweet.text}</p>
             <img src="${tweet.image}" alt="Borpa Image">
+            <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
         `;
         container.appendChild(tweetElement);
     });
 }
+
+document.addEventListener('DOMContentLoaded', loadTweets);
