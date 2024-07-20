@@ -79,6 +79,10 @@ function checkBorpa() {
 }
 const tweets = [
     {
+        text: "🏴‍☠️ Ahoy, BORPA Crew! 🏴‍☠️<br>Our fearless leader Borpa Sparrow is on the run with the treasure of $BORPA! Join the adventure and let's sail the seas of crypto together. Keep an eye out for the unclaimed bounty! 🌊💰 #JustBorpa #BullishForBorpa $Borpa<br><br>Borpa Sparrow",
+        image: "images/tweet7.png"
+    },
+    {
         text: "🎤🔥 BORPA COMMANDS: BURN IT! 🔥🎤<br>At the heart of the $BORPA rally, our leader calls for decisive action! 'Burn it!' he says, pointing to the unclaimed supply. Together, we're strengthening our community. Don't forget, the vote ends in less than 24 hours! 🐸✨ #JustBorpa $Borpa",
         image: "images/tweet6.png"
     },
