@@ -85,6 +85,18 @@ const tweets = [
     {
         text: "🌴🏖️ BORPA BEACH VIBES! 🏖️🌴<br>$BORPA is soaking up the sun and catching waves! Embrace the relaxed and adventurous spirit of our community. Crypto never looked this fun! 🌊🐸 #JustBorpa #BullishForBorpa $Borpa",
         image: "images/tweet2.png"
+    },
+    {
+        text: "🚕💼 ON THE MOVE WITH BORPA! 💼🚕<br>$BORPA is heading to shake up the memecoin world! With business savvy and unstoppable drive, we're set to transform the crypto landscape. Join the ride and let's make waves together! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet3.png"
+    },
+    {
+        text: "🚀 HEAR YE, HEAR YE! 🚀<br>The valiant $BORPA knights are ready to conquer the crypto kingdom! With strength, bravery, and the spirit of adventure, we shall rise! 🌟 Join the quest and be part of the legend! 🐸🛡️⚔️ #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet4.png"
+    },
+    {
+        text: "🚀🌕 HEY BORPA EXPLORERS! 🌕🚀<br>$BORPA has landed on the moon! With the spirit of exploration and limitless potential, we are pioneering the crypto universe. Join the adventure and let's make history together! 🐸🌌 #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet5.png"
     }
     // Ajoutez de nouveaux tweets ici
 ];
