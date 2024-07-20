@@ -103,6 +103,7 @@ function loadMoreTweets() {
             <img src="${tweet.image}" alt="Borpa Image">
             <div class="button-container">
                 <a href="${generateTwitterUrl(tweet.text)}" target="_blank" class="tweet-button">Post on Twitter</a>
+                <button class="copy-button" onclick="copyImageToClipboard('${tweet.image}')">Copy Image</button>
             </div>
         `;
         fragment.appendChild(tweetElement);
@@ -147,3 +148,4 @@ function handleScroll() {
 
 document.addEventListener('DOMContentLoaded', fetchTweets);
 window.addEventListener('scroll', handleScroll);
+
