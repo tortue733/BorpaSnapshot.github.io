@@ -79,6 +79,18 @@ function checkBorpa() {
 }
 const tweets = [
     {
+        text: "🎤🔥 BORPA COMMANDS: BURN IT! 🔥🎤<br>At the heart of the $BORPA rally, our leader calls for decisive action! 'Burn it!' he says, pointing to the unclaimed supply. Together, we're strengthening our community and forging a powerful future. Don't forget, the vote ends in less than 24 hours! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet6.png"
+    },
+    {
+        text: "🚀 HEAR YE, HEAR YE! 🚀<br>The valiant $BORPA knights are ready to conquer the crypto kingdom! With strength, bravery, and the spirit of adventure, we shall rise! 🌟 Join the quest and be part of the legend! 🐸🛡️⚔️ #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet4.png"
+    },
+    {
+        text: "🚀🌕 HEY BORPA EXPLORERS! 🌕🚀<br>$BORPA has landed on the moon! With the spirit of exploration and limitless potential, we are pioneering the crypto universe. Join the adventure and let's make history together! 🐸🌌 #JustBorpa #BullishForBorpa $Borpa",
+        image: "images/tweet5.png"
+    },
+    {
         text: "🎤📢 BORPA FOR THE FUTURE! 📢🎤<br>$BORPA is rallying the community for a brighter crypto future! With visionary leadership and unstoppable energy, we're ready to revolutionize the world of memecoins. Join us and be part of the change! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
         image: "images/tweet1.png"
     },
@@ -89,15 +101,9 @@ const tweets = [
     {
         text: "🚕💼 ON THE MOVE WITH BORPA! 💼🚕<br>$BORPA is heading to shake up the memecoin world! With business savvy and unstoppable drive, we're set to transform the crypto landscape. Join the ride and let's make waves together! 🐸✨ #JustBorpa #BullishForBorpa $Borpa",
         image: "images/tweet3.png"
-    },
-    {
-        text: "🚀 HEAR YE, HEAR YE! 🚀<br>The valiant $BORPA knights are ready to conquer the crypto kingdom! With strength, bravery, and the spirit of adventure, we shall rise! 🌟 Join the quest and be part of the legend! 🐸🛡️⚔️ #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet4.png"
-    },
-    {
-        text: "🚀🌕 HEY BORPA EXPLORERS! 🌕🚀<br>$BORPA has landed on the moon! With the spirit of exploration and limitless potential, we are pioneering the crypto universe. Join the adventure and let's make history together! 🐸🌌 #JustBorpa #BullishForBorpa $Borpa",
-        image: "images/tweet5.png"
     }
+    
+    
     // Ajoutez de nouveaux tweets ici
 ];
 
